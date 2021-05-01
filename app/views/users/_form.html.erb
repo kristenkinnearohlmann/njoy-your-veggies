@@ -1,7 +1,15 @@
 <%= form_for @user do |f| %>
     <div>
-        <%= f.label :email %><br/>
+        <%= f.label :email %><span class="required-input">*</span><br/>
         <%= f.email_field :email %>
+    </div>
+    <div>
+        <%= f.label :password %><span class="required-input">*</span><br/>
+        <%= f.password_field :password %>
+    </div>
+    <div>
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %>
     </div>
     <%= f.submit %>
 <% end %>

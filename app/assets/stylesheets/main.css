@@ -82,6 +82,7 @@ nav {
 
 .content-header {
     text-align: center;
+    font-family: 'Over the Rainbow', cursive;
 }
 
 footer {
@@ -91,4 +92,10 @@ footer {
     border-top: 2px solid grey;
     margin: 0 auto;
     font-size: 0.75rem;
+}
+
+.required-input {
+    color: darkmagenta;
+    font-size: 1.25rem;
+    font-weight: bolder;
 }

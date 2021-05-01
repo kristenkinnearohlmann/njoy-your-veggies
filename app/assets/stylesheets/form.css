@@ -5,7 +5,9 @@ form {
     padding: 2rem;
 }
 
-form input[type=email] {
+form input[type=email], 
+    input[type=password],
+    input[type=text] {
     background-color: fuchsia;
     padding: 0.5rem;
     width: 75%;
@@ -21,4 +23,5 @@ form input[type=submit] {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    margin-top: 1rem;
 }
