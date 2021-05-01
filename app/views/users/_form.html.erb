@@ -1,5 +1,8 @@
 <%= form_for @user do |f| %>
     <div>
+        <p>Already a user? <%= link_to "Log in here", login_path %></p>
+    </div>
+    <div>
         <%= f.label "Email" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@user, :email) %></span><br/>
         <%= f.email_field :email %>
     </div>
@@ -11,5 +14,10 @@
         <%= f.label :name %><br/>
         <%= f.text_field :name %>
     </div>
-    <%= f.submit %>
+    <div>
+        <%= f.submit %>
+    </div>
 <% end %>
+<div>
+<%= button_to 'Sign up with Facebook', '/auth/facebook', method: :post %>
+</div>
