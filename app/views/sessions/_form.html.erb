@@ -1,5 +1,10 @@
 <%= form_tag(login_path) do %>
     <div>
+        <% if flash[:error] %>
+            <p class="err-msg"><%= flash[:error] %></p>
+        <% end %>
+    </div>
+    <div>
         <%= label_tag "Email" %><span class="required-input">*</span><br/>
         <%= email_field_tag :email %>
     </div>
