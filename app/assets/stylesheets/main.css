@@ -80,6 +80,10 @@ nav {
     padding: 1rem 1rem;
 }
 
+.content-header {
+    text-align: center;
+}
+
 footer {
     height: 5vh;
     text-align: center;

@@ -1,3 +1,17 @@
 form {
     background-color: violet;
+    width: 75%;
+    margin: 0 auto;
+}
+
+form input[type=submit] {
+    /* background-color: grey;
+    border: none; */
+    background-color: grey;
+    border: 1px solid black;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
 }

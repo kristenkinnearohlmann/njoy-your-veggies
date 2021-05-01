@@ -1,1 +1,6 @@
-<h2>Sign up for an account</h2>
+<h2 class="content-header">Sign up for an account</h2>
+<% if @user.errors.any? %>
+    <p>Fix up errors here</p>
+<% end %>
+
+<%= render 'form' %>
