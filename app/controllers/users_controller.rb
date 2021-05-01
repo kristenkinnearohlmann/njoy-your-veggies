@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authenticated_user, only: [:new, :create]
+    # skip_before_action :authenticated_user, only: [:new, :create]
 
     def index
         # TODO: Scope method in User to return only users

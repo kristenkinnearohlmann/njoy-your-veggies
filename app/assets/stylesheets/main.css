@@ -73,10 +73,11 @@ nav {
 }
 
 .content {
-    height: 59vh;
+    height: 55vh;
     width: 95%;
     background-color: fuchsia;
     margin: 1rem auto;
+    padding: 1rem 1rem;
 }
 
 footer {
