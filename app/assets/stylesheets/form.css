@@ -1,7 +1,14 @@
 form {
     background-color: violet;
-    width: 75%;
+    width: 50%;
     margin: 0 auto;
+    padding: 2rem;
+}
+
+form input[type=email] {
+    background-color: fuchsia;
+    padding: 0.5rem;
+    width: 75%;
 }
 
 form input[type=submit] {
