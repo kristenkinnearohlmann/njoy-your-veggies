@@ -6,4 +6,7 @@ class Recipe < ApplicationRecord
 
     belongs_to :user
 
+    def list_instructions
+        byebug
+    end
 end

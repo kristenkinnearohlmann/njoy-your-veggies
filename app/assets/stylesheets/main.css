@@ -90,6 +90,12 @@ nav {
     margin: 0 auto;
 }
 
+.content-container {
+    width: 75%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
 footer {
     height: 5vh;
     text-align: center;
