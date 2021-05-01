@@ -19,7 +19,7 @@ body {
     border-bottom: 2px solid grey;
     background-image: url("cabbage-crop-2.jpg");
     background-color: #fff; 
-    height: 20vh; 
+    height: 25vh; 
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -28,7 +28,7 @@ body {
 .page-header h1 {
     font-family: 'Over the Rainbow', cursive;
     margin: 0;
-    padding: 1rem;
+    padding: 0.125rem 0 0.5rem 0;
     text-align: center;
 }
 
@@ -50,8 +50,15 @@ body {
     text-decoration: none;
 }
 
+.page-header nav {
+    text-align: center;
+}
+.page-header nav a:link {
+    text-decoration: none;
+}
+
 .content {
-    height:  70vh;
+    height:  65vh;
 }
 
 footer {
