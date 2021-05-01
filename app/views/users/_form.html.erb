@@ -1,14 +1,10 @@
 <%= form_for @user do |f| %>
-    <% if @user.errors.any? %>
-        <p>Fix up errors here</p>
-        <%= form_errors(@user) %>
-    <% end %>
     <div>
-        <%= f.label "Email" %><span class="required-input">*</span><br/>
+        <%= f.label "Email" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@user, :email) %></span><br/>
         <%= f.email_field :email %>
     </div>
     <div>
-        <%= f.label "Password" %><span class="required-input">*</span><br/>
+        <%= f.label "Password" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@user, :password) %></span><br/>
         <%= f.password_field :password %>
     </div>
     <div>
