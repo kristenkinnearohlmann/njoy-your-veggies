@@ -3,12 +3,12 @@
         <p>Fix up errors here</p>
         <%= form_errors(@user) %>
     <% end %>
-    <div>
-        <%= f.label :email %><span class="required-input">*</span><br/>
+
+        <%= f.label "Email" %><br/>
         <%= f.email_field :email %>
-    </div>
-    <div>
-        <%= f.label :password %><span class="required-input">*</span><br/>
+
+    <div class="test">
+        <%= f.label "Password" %><span class="required-input">*</span><br/>
         <%= f.password_field :password %>
     </div>
     <div>
