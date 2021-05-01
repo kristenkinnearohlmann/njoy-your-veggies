@@ -14,7 +14,15 @@ body {
 }
 
 .page-header {
-    height: 15vh;
+    /* Photo by <a href="https://unsplash.com/@essntlsm_1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Leonie Vreden</a> on <a href="https://unsplash.com/s/photos/vegetable?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */
+    /* original: https://unsplash.com/photos/l8RACf3Ta4M */
+    border-bottom: 2px solid grey;
+    background-image: url("cabbage-crop-2.jpg");
+    background-color: #fff; 
+    height: 20vh; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
 }
 
 .page-header h1 {
@@ -43,10 +51,13 @@ body {
 }
 
 .content {
-    height:  75vh;
+    height:  70vh;
 }
 
 footer {
-    height: 5vh;
+    height: 7vh;
     text-align: center;
+    background-color: #fff;
+    border-top: 2px solid grey;
+    margin: 0 auto;
 }
