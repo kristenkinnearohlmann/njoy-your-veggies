@@ -78,6 +78,7 @@ nav {
     background-color: fuchsia;
     margin: 1rem auto;
     padding: 1rem 1rem;
+    overflow: auto;
 }
 
 .content-header {
