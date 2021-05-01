@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 
     def create
         byebug
-        if @user = User.create(user_params)
+        @user = User.create(user_params)
+        if @user.valid?
             session[:user_id] = @user.id
             byebug
             redirect_to user_path(@user)
