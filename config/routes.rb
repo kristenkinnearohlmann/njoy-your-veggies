@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/about', to: 'static#about'
   get '/login', to: 'sessions#new'
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
