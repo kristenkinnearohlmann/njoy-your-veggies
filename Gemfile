@@ -27,6 +27,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 
+# dotenv for config
+gem 'dotenv-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
