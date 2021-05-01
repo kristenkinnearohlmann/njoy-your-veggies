@@ -15,17 +15,14 @@ form
 }
 
 form input[type=submit] {
-    /* background-color: grey;
-    border: none; */
     background-color: grey;
     border: 1px solid black;
     color: white;
     padding: 1rem 2rem;
     text-decoration: none;
-    margin: 4px 2px;
     cursor: pointer;
     margin-top: 1rem;
-    width: 95%;
+    width: 98%;
 }
 
 form div {
