@@ -24,6 +24,24 @@ body {
     text-align: center;
 }
 
+.page-header h1 a:link {
+    text-decoration: none;
+}
+
+.page-header h1 a:hover {
+    text-decoration: underline;
+}
+
+.page-header h1 a:active {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+.page-header h1 a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
 .content {
     height:  75vh;
 }
