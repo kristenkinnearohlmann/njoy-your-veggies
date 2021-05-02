@@ -10,7 +10,9 @@ class Recipe < ApplicationRecord
 
     def add_ingredients(ingredients_list)
         ingredients_list.each do |ingredient|
-            
+            byebug
+            result = LittleRecipeParser::Parse.new(ingredient)
+            byebug
         end
     end
 

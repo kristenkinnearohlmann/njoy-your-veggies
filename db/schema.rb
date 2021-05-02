@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_194856) do
+ActiveRecord::Schema.define(version: 2021_05_02_195654) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 2021_05_02_194856) do
     t.string "unit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_plural", default: false
+    t.boolean "is_plural_amount", default: false
+    t.boolean "is_plural_unit", default: false
+    t.boolean "is_plural_ingredient", default: false
   end
 
   create_table "recipes", force: :cascade do |t|
