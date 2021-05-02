@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  get '/recipes/vegetarian', to: 'recipes#vegetarian'
+  get '/recipes/vegan', to: 'recipes#vegan'
+
   resources :users, only: [:index, :show, :new, :create]
   resources :recipes, only: [:index, :show]
 
