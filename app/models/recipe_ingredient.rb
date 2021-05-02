@@ -6,6 +6,10 @@ class RecipeIngredient < ApplicationRecord
     validates :unit, presence: true
     validate :unit_singular?
 
+    def full_ingredient
+        "#{amount} #{unit_to_plural} #{Ingredient.find(ingredient_id).name}"
+    end
+
     def unit_to_singular
         unit.singularize
     end
