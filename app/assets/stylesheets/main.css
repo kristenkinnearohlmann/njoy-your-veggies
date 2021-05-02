@@ -91,9 +91,12 @@ nav {
 }
 
 .content-container {
-    width: 75%;
+    width: 55%;
     margin: 0 auto;
     padding: 1rem;
+    background-color: violet;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 footer {

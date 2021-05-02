@@ -1,5 +1,13 @@
-<div class="content-item">
-    <h2>Profile</h2>
-    <%= @user.email %><br/>
-    <%= @user.name %>
+<h2 class="content-header">User profile</h2>
+<div class="content-container">
+    <div class="content-item">
+        <h3>Account information</h3>
+        <strong>Email:</strong> <%= @user.email %><br/>
+        <strong>Name:</strong> <%= @user.name %><br/>
+        <strong>Joined:</strong> <%= @user.created_at %>
+    </div>
+    <div class="content-item">
+        <h3>Recipe information</h3>
+
+    </div>
 </div>
