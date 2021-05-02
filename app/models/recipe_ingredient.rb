@@ -7,15 +7,15 @@ class RecipeIngredient < ApplicationRecord
     validate :unit_singular?
 
     def full_ingredient
-        "#{amount} #{unit_to_plural} #{Ingredient.find(ingredient_id).name}"
+        "#{amount} #{unit_name} #{ingredient_name}"
     end
 
-    def unit_to_singular
-        unit.singularize
+    def ingredient_name
+        is_plural_ingredient? ? self.ingredient.name.pluralize : self.ingredient.name
     end
 
-    def unit_to_plural
-        unit.pluralize
+    def unit_name
+        is_plural_unit? ? self.unit.pluralize : self.unit
     end
 
     private
