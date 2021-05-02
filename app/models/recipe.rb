@@ -11,7 +11,7 @@ class Recipe < ApplicationRecord
     def add_ingredients(ingredients_list)
         ingredients_list.each do |ingredient|
             result = recipe_ingredient_parts(LittleRecipeParser::Parse.new(ingredient))
-            byebug
+            self.recipe_ingredients.build(result)
         end
     end
 
@@ -19,8 +19,9 @@ class Recipe < ApplicationRecord
         recipe_ingredient_parts = {}
 
         result.tag.present? ? result.tag = result.tag.downcase : result.tag = result.raw_ingredient.gsub(/#{result.quantity}\s#{result.measurement}\s/,"").downcase
-        
-        if ingredient = Ingredient.find_or_create_by(name: result.tag)
+        ingredient = Ingredient.find_or_create_by(name: result.tag.singularize)
+
+        if ingredient.valid?
             recipe_ingredient_parts = {
                 :recipe_id => self.id,
                 :ingredient_id => ingredient.id,
@@ -30,6 +31,8 @@ class Recipe < ApplicationRecord
                 :is_plural_unit => item_plural?(result.measurement),
                 :is_plural_ingredient => item_plural?(result.tag)
             }
+        else
+            self.errors.add("Ingredient",ingredient.errors.full_messages)
         end
         recipe_ingredient_parts
     end
