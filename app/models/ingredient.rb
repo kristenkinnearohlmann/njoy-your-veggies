@@ -3,7 +3,11 @@ class Ingredient < ApplicationRecord
     validate :name_singular?
 
     def name_to_singular
-        name = name.singularize
+        name.singularize
+    end
+
+    def name_to_plural
+        name.pluralize
     end
 
     private

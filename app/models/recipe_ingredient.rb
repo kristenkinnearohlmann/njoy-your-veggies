@@ -4,7 +4,11 @@ class RecipeIngredient < ApplicationRecord
     validate :unit_singular?
 
     def unit_to_singular
-        unit = unit.singularize
+        unit.singularize
+    end
+
+    def unit_to_plural
+        unit.pluralize
     end
 
     private
