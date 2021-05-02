@@ -29,7 +29,9 @@ Specs:
      - Validates unit presence
      - Validates amount presence
      - Custom validation method on unit being a singular value
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [X] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+   - Created scope for Vegetarian recipes ['/recipes/vegetarian'](http://localhost:3000/recipes/vegetarian)
+   - Created scope for Vegan recipes ['/recipes/vegan'](http://localhost:3000/recipes/vegan)
 - [X] Include signup (how e.g. Devise)
    - Created sign up with `form_for` wrapped around a `User` object
    - Logged user into session
