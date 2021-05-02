@@ -8,11 +8,18 @@ class Recipe < ApplicationRecord
     validates :instructions, presence: true
     validates :instructions, length: { minimum: 25 }
 
-    def list_instructions
-        instructions.split(".").collect {|item| "#{item.strip}."}
+    def add_ingredients(ingredients_list)
+        ingredients_list.each do |ingredient|
+            
+        end
     end
 
     def list_ingredients
 
     end
+
+    def list_instructions
+        instructions.split(".").collect {|item| "#{item.strip}."}
+    end
+
 end
