@@ -3,6 +3,9 @@ class Recipe < ApplicationRecord
     has_many :recipe_ingredients
     has_many :ingredients, through: :recipe_ingredients
 
+    scope :vegetarian, -> { where(recipe_type: "Vegetarian") }
+    scope :vegan, -> { where(recipe_type: "Vegan") }
+
     validates :name, presence: true
     validates :recipe_type, inclusion: { in: ["Vegetarian","Vegan"], message: "%{value} is not a valid type" }
     validates :instructions, presence: true
