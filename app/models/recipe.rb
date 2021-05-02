@@ -10,10 +10,14 @@ class Recipe < ApplicationRecord
 
     def add_ingredients(ingredients_list)
         ingredients_list.each do |ingredient|
-            byebug
-            result = LittleRecipeParser::Parse.new(ingredient)
+            result = confirm_ingredient_tag(LittleRecipeParser::Parse.new(ingredient))
             byebug
         end
+    end
+
+    def confirm_ingredient_tag(result)
+        result.tag.present? ? result.tag = result.tag.downcase : result.tag = result.raw_ingredient.gsub(/#{result.quantity}\s#{result.measurement}\s/,"").downcase
+        result
     end
 
     def list_ingredients
