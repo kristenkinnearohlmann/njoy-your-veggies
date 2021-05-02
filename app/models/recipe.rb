@@ -8,6 +8,10 @@ class Recipe < ApplicationRecord
     validates :instructions, presence: true
     validates :instructions, length: { minimum: 25 }
 
+    def user_name
+        user.name.present? ? user.name : user.email
+    end
+
     def add_ingredients(ingredients_list)
         ingredients_list.each do |ingredient|
             result = recipe_ingredient_parts(LittleRecipeParser::Parse.new(ingredient))
