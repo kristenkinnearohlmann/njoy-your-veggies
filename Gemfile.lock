@@ -64,6 +64,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
+    blankslate (3.1.3)
     bootsnap (1.7.4)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -99,9 +100,13 @@ GEM
     hashie (4.1.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    ingreedy (0.0.9)
+      parslet (~> 1.7.0, >= 1.7.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     jwt (2.2.3)
+    little-recipe-parser (0.1.2)
+      activesupport
     loofah (2.9.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -136,6 +141,8 @@ GEM
     omniauth-rails_csrf_protection (1.0.0)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
+    parslet (1.7.1)
+      blankslate (>= 2.0, <= 4.0)
     public_suffix (4.0.6)
     puma (5.2.2)
       nio4r (~> 2.0)
@@ -230,7 +237,9 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   dotenv-rails
+  ingreedy (~> 0.0.4)
   jbuilder (~> 2.7)
+  little-recipe-parser (~> 0.1.2)
   omniauth
   omniauth-facebook
   omniauth-rails_csrf_protection

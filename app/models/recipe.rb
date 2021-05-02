@@ -7,6 +7,10 @@ class Recipe < ApplicationRecord
     belongs_to :user
 
     def list_instructions
-        byebug
+        instructions.split(".").collect {|item| "#{item.strip}."}
+    end
+
+    def list_ingredients
+
     end
 end

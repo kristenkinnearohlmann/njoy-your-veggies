@@ -22,6 +22,14 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use Active Storage variant
+# gem 'image_processing', '~> 1.2'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.4', require: false
+
+# Project-specific gems
+
 # OmniAuth
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -30,11 +38,8 @@ gem 'omniauth-rails_csrf_protection'
 # dotenv for config
 gem 'dotenv-rails'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+# Little Recipe Parser parses ingredient list items
+gem 'little-recipe-parser', '~> 0.1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
