@@ -1,0 +1,4 @@
+<%= p_for_recipe(recipe) do %>
+    <%= link_to recipe.name, recipe_path(recipe) %><br>
+    <%= recipe.description %>
+<% end %>

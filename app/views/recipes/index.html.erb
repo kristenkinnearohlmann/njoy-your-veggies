@@ -2,17 +2,10 @@
 <div class="content-item content-container">
     <div class="content-item">
         <p><strong>Vegetarian</strong> | <%= link_to "all vegetarian", recipes_vegetarian_path %></p>
-        <% @recipes_vegetarian.each do |recipe| %>
-            <p>
-                <%= link_to recipe.name, recipe_path(recipe) %><br/>
-                <%= recipe.description %>
-            </p>
-        <% end %>
+        <%= render collection: @recipes_vegetarian, partial: "recipe_p", as: :recipe %>
     </div>
     <div class="content-item">
         <p><strong>Vegan</strong> | <%= link_to "all vegan", recipes_vegan_path %></p>
-        <% @recipes_vegan.each do |recipe| %>
-            <%= recipe_detail(recipe) %>
-        <% end %>
+        <%= render collection: @recipes_vegan, partial: "recipe_p", as: :recipe %>
     </div>
 </div>
