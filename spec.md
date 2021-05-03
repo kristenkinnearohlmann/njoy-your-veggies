@@ -44,13 +44,15 @@ Specs:
 - [X] Include third party signup/login (how e.g. Devise/OmniAuth)
    - Used OmnitAuth with the Facebook strategy
    - Used the `match` keyword from the OmniAuth lab to allow for addition of more strategies post-MVP
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
+- [X] Include nested resource show or index (URL e.g. users/2/recipes)
+   - Included link for most recent recipe on user's profile page
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - [X] Include form display of validation errors (form URL e.g. /recipes/new)
    - Forms include call to helper method for form errors in `application_helper`
 
 Confirm:
-- [ ] The application is pretty DRY
+- [X] The application is pretty DRY
+   - I continuously reviewed code for logic to be abstracted to a more central location
 - [X] Limited logic in controllers
    - Moved involved logic to the models
 - [X] Views use helper methods if appropriate
