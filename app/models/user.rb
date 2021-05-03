@@ -11,9 +11,27 @@ class User < ApplicationRecord
     end
 
     def user_years
+        start_date = created_at.to_datetime
+        current_date = DateTime.now
+
+        days = (start_date...current_date).count
+        months = (current_date.year * 12 + current_date.month) - (start_date.year * 12 + start_date.month)
         byebug
-        # ((DateTime.now - created_at.to_datetime) / 365).floor
-        # distance_of_time_in_words(created_at.to_datetime,DateTime.now)
-        ((DateTime.now - created_at.to_datetime) / 24.hour).round
+        user_years_fmt(days, months % 12, months / 12) 
     end
+
+    def user_years_fmt(days, months, years)
+        byebug
+
+        year_text = ""
+        month_text = ""
+        day_text = ""
+
+        if years != 0
+            year_text = "#{years} #{"year".pluralize} and "
+        end
+
+        "#{year_text}#{"month".pluralize}"
+    end
+
 end
