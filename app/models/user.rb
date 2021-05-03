@@ -6,21 +6,29 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :password, presence: true
 
+    def recipe_count
+        recipes.count
+    end
+
+    def most_recent_recipe
+        recipes.last
+    end
+
     def joined_date
         created_at.strftime("%-d %B %Y")
     end
 
-    def user_years
+    def user_timeframe
         start_date = created_at.to_datetime
         current_date = DateTime.now
 
         days = (start_date...current_date).count
         months = (current_date.year * 12 + current_date.month) - (start_date.year * 12 + start_date.month)
 
-        user_years_fmt(days, months % 12, months / 12) 
+        user_timeframe_fmt(days, months % 12, months / 12) 
     end
 
-    def user_years_fmt(days, months, years)
+    def user_timeframe_fmt(days, months, years)
 
         timeframe = []
         timeframe << date_part_pluralize(years,'year')
