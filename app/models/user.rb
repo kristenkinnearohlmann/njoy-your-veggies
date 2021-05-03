@@ -29,24 +29,20 @@ class User < ApplicationRecord
     end
 
     def user_timeframe_fmt(days, months, years)
-
         timeframe = []
         timeframe << date_part_pluralize(years,'year')
         timeframe << date_part_pluralize(months,'month')
         timeframe << date_part_pluralize(days,'day')
         timeframe.collect {|part| part if part != ""}.compact.join(", ")
-
     end
 
     def date_part_pluralize(amount, date_part)
-
         if amount == 0
             date_part_text = ""
         else
             date_part_text = "#{amount} #{date_part}"
             "#{date_part_text}s" if amount >= 1
-        end
-        
+        end        
     end
 
 end

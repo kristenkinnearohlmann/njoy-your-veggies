@@ -49,7 +49,11 @@ class Recipe < ApplicationRecord
     end
 
     def list_ingredients
-
+        ingredients_list = []
+        recipe_ingredients.each do |recipe_ingredient|
+            ingredients_list << recipe_ingredient.full_ingredient
+        end
+        ingredients_list
     end
 
     def list_instructions

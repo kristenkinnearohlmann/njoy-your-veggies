@@ -5,14 +5,6 @@ class Ingredient < ApplicationRecord
     validates :name, presence: true
     validate :name_singular?
 
-    def name_to_singular
-        name.singularize
-    end
-
-    def name_to_plural
-        name.pluralize
-    end
-
     private
 
     def name_singular?
