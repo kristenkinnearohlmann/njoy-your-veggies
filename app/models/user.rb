@@ -11,6 +11,9 @@ class User < ApplicationRecord
     end
 
     def user_years
-        ((DateTime.now - created_at) / 365).floor
+        byebug
+        # ((DateTime.now - created_at.to_datetime) / 365).floor
+        # distance_of_time_in_words(created_at.to_datetime,DateTime.now)
+        ((DateTime.now - created_at.to_datetime) / 24.hour).round
     end
 end
