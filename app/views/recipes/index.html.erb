@@ -1,6 +1,21 @@
-<div class="content-item">
-    <h2>Recipes</h2>
-    <% @recipes.each do |recipe| %>
-        <%= link_to recipe.name, recipe_path(recipe) %>:<%= recipe.recipe_type %><%= recipe.description %><br/>
-    <% end %>
+<h2 class="content-header">Recipes</h2>
+<div class="content-item content-container">
+    <div class="content-item">
+        <p><strong>Vegetarian</strong> | <%= link_to "all vegetarian", recipes_vegetarian_path %></p>
+        <% @recipes_vegetarian.each do |recipe| %>
+            <p>
+                <%= link_to recipe.name, recipe_path(recipe) %><br/>
+                <%= recipe.description %>
+            </p>
+        <% end %>
+    </div>
+    <div class="content-item">
+        <p><strong>Vegan</strong> | <%= link_to "all vegan", recipes_vegan_path %></p>
+        <% @recipes_vegan.each do |recipe| %>
+            <p>
+                <%= link_to recipe.name, recipe_path(recipe) %><br/>
+                <%= recipe.description %>
+            </p>
+        <% end %>
+    </div>
 </div>

@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
     skip_before_action :authenticated_user, only: [:index, :show, :vegetarian, :vegan]
 
     def index
-        @recipes = Recipe.all
+        @recipes_vegetarian = vegetarian
+        @recipes_vegan = vegan
     end
 
     def show
