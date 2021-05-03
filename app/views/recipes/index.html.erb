@@ -12,10 +12,7 @@
     <div class="content-item">
         <p><strong>Vegan</strong> | <%= link_to "all vegan", recipes_vegan_path %></p>
         <% @recipes_vegan.each do |recipe| %>
-            <p>
-                <%= link_to recipe.name, recipe_path(recipe) %><br/>
-                <%= recipe.description %>
-            </p>
+            <%= recipe_detail(recipe) %>
         <% end %>
     </div>
 </div>
