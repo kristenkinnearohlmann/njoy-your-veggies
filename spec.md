@@ -57,6 +57,8 @@ Confirm:
    - Moved involved logic to the models
 - [X] Views use helper methods if appropriate
    - Handled form errors in `application_helper`
+   - Handled listing recipes in `recipes_helper`
 - [X] Views use partials if appropriate
    - Sign up form is rendered via partial
    - Log in form is rendered via partial
+   - Recipe listing is rendered via partial
