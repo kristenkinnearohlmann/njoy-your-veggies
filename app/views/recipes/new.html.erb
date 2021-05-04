@@ -1,4 +1,6 @@
 <%= render partial: 'layouts/content_page_subtitle', locals: {subtitle: "Add a recipe"} %>
 <div class="content-item form-container">
-    <%= render partial: 'form', locals: {recipe: @recipe, user_id: current_user.id} %>
+    <%= form_for @recipe, url: user_recipes_path(current_user) do |f| %>
+        <%= render partial: 'form', locals: {f: f, user_id: current_user.id} %>
+    <% end %>
 </div>
