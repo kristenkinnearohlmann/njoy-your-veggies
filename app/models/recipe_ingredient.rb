@@ -3,7 +3,7 @@ class RecipeIngredient < ApplicationRecord
     belongs_to :ingredient
 
     validates :amount, presence: true
-    validates :unit, presence: true
+    # validates :unit, presence: true
     validate :unit_singular?
 
     def full_ingredient
