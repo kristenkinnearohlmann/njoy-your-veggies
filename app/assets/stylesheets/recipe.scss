@@ -1,0 +1,22 @@
+$base-color-content: violet;
+$base_color_recipe_div: purple;
+$recipe_div_font: #F8F8FF;
+
+.recipe-container {
+    width: 55%;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: $base-color-content;
+}
+
+.recipe-container-content {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 10px;
+}
+
+.recipe-container > div {
+    background-color: $base_color_recipe_div;
+    margin: 2px;
+    color: $recipe_div_font;
+}

@@ -1,15 +1,22 @@
 <div class="content-item recipe-container">
     <h2><%= @recipe.name %></h2>
-    <h3>Ingredients</h3>
-        <ul>
-            <% @recipe.list_ingredients.each do |ingredient| %>
-                <li><%= ingredient %></li>
-            <% end %>
-        </ul>
-    <h3>Instructions</h3>
-    <ol>
-        <% @recipe.list_instructions.each do |instruction| %>
-            <li><%= instruction %></li>
-        <% end %>
-    </ol>
+    <div class="recipe-container-content">
+        <div>
+            <h3>Ingredients</h3>
+                <ul>
+                    <% @recipe.list_ingredients.each do |ingredient| %>
+                        <li><%= ingredient %></li>
+                    <% end %>
+                </ul>
+            <h3>Instructions</h3>
+            <ol>
+                <% @recipe.list_instructions.each do |instruction| %>
+                    <li><%= instruction %></li>
+                <% end %>
+            </ol>
+        </div>
+        <div>
+            <%= image_tag "recipe_1.jpg" %>
+        </div>
+    </div>
 </div>
