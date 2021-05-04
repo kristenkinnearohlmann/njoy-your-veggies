@@ -1,8 +1,10 @@
 $base-color-page: greenyellow;
-$base-color-container: ;
+$base-color-container: fuchsia;
+$base-color-content: violet;
+$error-color-highlight: darkmagenta;
 
 html {
-    background-color: $base-color;
+    background-color: $base-color-page;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -17,8 +19,6 @@ body {
 }
 
 .page-header {
-    /* Photo by <a href="https://unsplash.com/@essntlsm_1?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Leonie Vreden</a> on <a href="https://unsplash.com/s/photos/vegetable?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */
-    /* original: https://unsplash.com/photos/l8RACf3Ta4M */
     background-image: url("cabbage-crop-2.jpg");
     background-color: #fff; 
     height: 25vh; 
@@ -78,8 +78,7 @@ nav {
 .content {
     height: 55vh;
     width: 95%;
-    background-color: fuchsia;
-    /* background-color: #FF99FF; */
+    background-color: $base-color-container;
     margin: 1rem auto;
     padding: 1rem 1rem;
     overflow: auto;
@@ -98,8 +97,7 @@ nav {
     width: 55%;
     margin: 0 auto;
     padding: 1rem;
-    background-color: violet;
-    /* background-color: #FFD5FF; */
+    background-color: $base-color-content;
     display: flex;
     flex-flow: row wrap;
 }
@@ -108,8 +106,7 @@ nav {
     width: 55%;
     margin: 0 auto;
     padding: 1rem;
-    background-color: violet;  
-    /* background-color: #FFD5FF; */
+    background-color: $base-color-content;  
 }
 
 footer {
@@ -122,14 +119,12 @@ footer {
 }
 
 .required-input {
-    color: darkmagenta;
-    /* color: #AB3DBC; */
+    color: $error-color-highlight;
     font-size: 1.25rem;
     font-weight: bolder;
 }
 
 .err-msg {
     font-size: 0.75rem;
-    color: darkmagenta;
-    /* color: #AB3DBC; */
+    color: $error-color-highlight;
 }
