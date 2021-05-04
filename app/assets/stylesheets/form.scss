@@ -12,7 +12,9 @@ $error-color-background: yellow;
 form 
     input[type=email], 
     input[type=password],
-    input[type=text] {
+    input[type=text],
+    select,
+    textarea {
     background-color: $base-color-container;
     padding: 0.5rem;
     width: 95%;

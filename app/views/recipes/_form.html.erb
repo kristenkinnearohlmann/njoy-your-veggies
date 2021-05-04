@@ -5,7 +5,23 @@
     </div>
     <div>
         <%= f.label "Recipe type" %><br/>
-        <%= f.collection_select(:recipe_type, Recipe.unique_type, :recipe_type, :recipe_type) %>
+        <%= f.collection_select(:recipe_type, Recipe.unique_type, :recipe_type, :recipe_type, { include_blank: 'Select recipe type' }) %>
+    </div>
+    <div>
+        <%= f.label "Recipe description" %><br/>
+        <%= f.text_area(:description, size: '1x3') %>
+    </div>
+    <div>
+        <%= f.label "Ingredients (one ingredient per line)" %><br/>
+        <!-- nested form? -->
+    </div>
+    <div>
+        <%= f.label "Instructions (one instruction per line)" %><br/>
+        <%= f.text_area(:instructions, size: '1x20') %>
+    </div>
+    <div>
+        <%= f.label "Recipe story" %>
+        <%= f.text_area(:story, size: '1x10') %>
     </div>
     <div>
         <%= f.hidden_field :user_id, {value: user_id} %>
