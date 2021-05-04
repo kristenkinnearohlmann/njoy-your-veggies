@@ -2,13 +2,14 @@
     <div>
         <% if flash[:error] %>
             <p class="err-msg"><%= flash[:error] %></p>
+            <% form_err = true %>
         <% end %>
     </div>
-    <div>
+    <div <%= 'class=field_with_errors' if form_err %>>
         <%= label_tag "Email" %><span class="required-input">*</span><br/>
         <%= email_field_tag :email %>
     </div>
-    <div>
+    <div <%= 'class=field_with_errors' if form_err %>>
         <%= label_tag "Password" %><span class="required-input">*</span><br/>
         <%= password_field_tag :password %>
     </div>
