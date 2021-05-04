@@ -1,7 +1,11 @@
 <%= form_for(recipe) do |f| %>
     <div>
-        <%= f.label "Recipe name" %></br>
+        <%= f.label "Recipe name" %><br/>
         <%= f.text_field :name %>
+    </div>
+    <div>
+        <%= f.label "Recipe type" %><br/>
+        <%= f.collection_select(:recipe_type, Recipe.unique_type, :recipe_type, Recipe.unique_type ) %>
     </div>
     <div>
         <%= f.hidden_field :user_id, {value: user_id} %>
