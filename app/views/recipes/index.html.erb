@@ -1,11 +1,23 @@
 <%= render partial: 'layouts/content_page_subtitle', locals: {subtitle: "Recipes"} %>
+<div>
+<% if flash[:error] %>
+    <p class="err-msg"><%= flash[:error] %></p>
+    <% form_err = true %>
+<% end %>
+</div>
 <div class="content-item content-container">
     <div class="content-item">
-        <p><strong>Vegetarian</strong> | <%= link_to "all vegetarian", recipes_vegetarian_path %></p>
+        <p>
+            <strong>Vegetarian</strong> | <%= link_to "all vegetarian", recipes_vegetarian_path %>
+            <% if current_user %> | <%= link_to "add new", new_user_recipe_path(current_user) %><% end %>
+        </p>
         <%= render collection: @recipes_vegetarian, partial: "recipe_p", as: :recipe %>
     </div>
     <div class="content-item">
-        <p><strong>Vegan</strong> | <%= link_to "all vegan", recipes_vegan_path %></p>
+        <p>
+            <strong>Vegan</strong> | <%= link_to "all vegan", recipes_vegan_path %> 
+            <% if current_user %> | <%= link_to "add new", new_user_recipe_path(current_user) %><% end %>
+        </p>
         <%= render collection: @recipes_vegan, partial: "recipe_p", as: :recipe %>
     </div>
 </div>

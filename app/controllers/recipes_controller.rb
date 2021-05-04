@@ -18,4 +18,8 @@ class RecipesController < ApplicationController
         @recipes = Recipe.vegan
     end
 
+    def new
+        @recipe = Recipe.new
+    end
+
 end
