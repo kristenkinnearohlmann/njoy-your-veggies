@@ -2,8 +2,6 @@
 <div class="content-item content-container">
     <div class="content-item">
         <p>Vegetarian recipes do not contain any muscle tissue of an animal. Neither fish nor fowl are included in a vegetarian diet and eaters must be aware and ask questions since this is a point of confusion. Most vegetarians are lacto-ovo vegetarians who consume eggs, milk, cheese and other dairy products.</p>
-        <% @recipes.each do |recipe| %>
-            <%= recipe.name %><br/>
-        <% end %>
+        <%= render collection: @recipes, partial: "recipe_p", as: :recipe %>
     </div>
 </div>

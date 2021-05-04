@@ -2,8 +2,6 @@
 <div class="content-item content-container">
     <div class="content-item">
         <p>Vegan recipes contain no animal products, by-products, nor products produced by animals. Many people are surprised to learn that vegans do not eat honey! Using the given definition, however, bees produce honey, so vegans avoid this ingredient.</p>
-        <% @recipes.each do |recipe| %>
-            <%= recipe.name %><br/>
-        <% end %>
+            <%= render collection: @recipes, partial: "recipe_p", as: :recipe %>
     </div>
 </div>
