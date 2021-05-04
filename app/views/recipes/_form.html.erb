@@ -13,11 +13,12 @@
     </div>
     <div>
         <%= f.label "Ingredients (one ingredient per line)" %><br/>
+        <%= text_area_tag "recipe[ingredients]", nil, rows:6, cols:1 %>
         <!-- nested form? -->
     </div>
     <div>
         <%= f.label "Instructions (one instruction per line)" %><br/>
-        <%= f.text_area(:instructions, size: '1x20') %>
+        <%= f.text_area(:instructions, size: '1x18') %>
     </div>
     <div>
         <%= f.label "Recipe story" %>

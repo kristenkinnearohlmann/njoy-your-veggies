@@ -20,6 +20,11 @@ form
     width: 95%;
 }
 
+form textarea {
+    overflow-y: auto;
+    resize: none;
+}
+
 form input[type=submit] {
     background-color: grey;
     border: 1px solid #000;
