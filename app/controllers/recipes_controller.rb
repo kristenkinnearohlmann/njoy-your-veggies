@@ -29,18 +29,29 @@ class RecipesController < ApplicationController
 #         recipe = u.recipes.new(top level recipe stuff)  
 # recipe.add_ingredients([])  
 # r.save  
+        if params[:recipe][:user_id] == current_user.id.to_s
+            @recipe = current_user.recipes.new(recipe_params(name: params[:recipe][:name],
+            description: params[:recipe][:description],
+            recipe_type: params[:recipe][:recipe_type],
+            instructions: params[:recipe][:instructions].split("\r\n"),
+            story: params[:recipe][:story])
+            )
+            @recipe.add_ingredients(params[:recipe][:ingredients].split("\r\n"))
+            if @recipe.save
+                redirect_to recipe_path(@recipe)
+            else
+                render new_user_recipe_path(current_user)
+            end
+        else
+            flash[:msg] = "You must be logged in to create a recipe."
+            render recipes_path
+        end
     end
 
     private
 
-    def recipe_params
-        params.require(:recipe).permit(
-            :name,
-            :description,
-            :recipe_type,
-            :instructions,
-            :story,
-            :user_id
-        )
+    def recipe_params(*args)
+        params.require(:recipe).permit(*args, :ingredients)
     end
+
 end
