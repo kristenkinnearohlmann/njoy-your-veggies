@@ -1,9 +1,9 @@
     <div>    
-        <%= f.label "Recipe name" %><br/>
+        <%= f.label "Recipe name" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@recipe, :name) %></span><br/>
         <%= f.text_field :name %>
     </div>
     <div>
-        <%= f.label "Recipe type" %><br/>
+        <%= f.label "Recipe type" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@recipe, :recipe_type) %></span><br/>
         <%= f.collection_select(:recipe_type, Recipe.unique_type, :recipe_type, :recipe_type, { include_blank: 'Select recipe type' }) %>
     </div>
     <div>
@@ -11,12 +11,12 @@
         <%= f.text_area(:description, size: '1x3') %>
     </div>
     <div>
-        <%= f.label "Ingredients (one ingredient per line)" %><br/>
+        <%= f.label "Ingredients (one ingredient per line)" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@recipe, :ingredients) %></span><br/>
         <%= text_area_tag "recipe[ingredients]", nil, rows:6, cols:1 %>
         <!-- nested form? -->
     </div>
     <div>
-        <%= f.label "Instructions (one instruction per line)" %><br/>
+        <%= f.label "Instructions (one instruction per line)" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@recipe, :instructions) %></span><br/>
         <%= f.text_area(:instructions, size: '1x18') %>
     </div>
     <div>

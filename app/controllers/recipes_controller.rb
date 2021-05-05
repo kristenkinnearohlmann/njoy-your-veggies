@@ -30,7 +30,8 @@ class RecipesController < ApplicationController
             if @recipe.save
                 redirect_to recipe_path(@recipe)
             else
-                render new_user_recipe_path(current_user)
+                # render new_user_recipe_path(current_user)
+                render controller: 'recipes', action: 'new'
             end
         else
             flash[:msg] = "You must be logged in to create a recipe."
