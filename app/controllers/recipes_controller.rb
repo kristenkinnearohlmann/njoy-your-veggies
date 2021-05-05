@@ -30,13 +30,10 @@ class RecipesController < ApplicationController
 # recipe.add_ingredients([])  
 # r.save  
         if params[:recipe][:user_id] == current_user.id.to_s
-            @recipe = current_user.recipes.new(recipe_params(name: params[:recipe][:name],
-            description: params[:recipe][:description],
-            recipe_type: params[:recipe][:recipe_type],
-            instructions: params[:recipe][:instructions].split("\r\n"),
-            story: params[:recipe][:story])
-            )
-            @recipe.add_ingredients(params[:recipe][:ingredients].split("\r\n"))
+            @recipe = current_user.recipes.new(recipe_params(:name, :description, :recipe_type, :instructions.split("\r\n"),:story))
+            byebug
+            @recipe.add_ingredients(recipe_params(ingredients: [:ingredients].split("\r\n")))
+            byebug
             if @recipe.save
                 redirect_to recipe_path(@recipe)
             else
@@ -51,7 +48,7 @@ class RecipesController < ApplicationController
     private
 
     def recipe_params(*args)
-        params.require(:recipe).permit(*args, :ingredients)
+        params.require(:recipe).permit(*args)
     end
 
 end
