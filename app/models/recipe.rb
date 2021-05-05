@@ -29,7 +29,7 @@ class Recipe < ApplicationRecord
 
         result.tag.present? ? result.tag = result.tag.downcase : result.tag = result.raw_ingredient.gsub(/#{result.quantity}\s#{result.measurement}\s/,"").downcase
         ingredient = Ingredient.find_or_create_by(name: result.tag.singularize)
-        byebug
+
         if ingredient.valid?
             recipe_ingredient_parts = {
                 :recipe_id => self.id,

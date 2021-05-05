@@ -7,16 +7,21 @@
 </div>
 <div class="content-item content-container">
     <div class="content-item">
+        <% if current_user %>
+            <%= link_to "Add new recipe", new_user_recipe_path(current_user) %>
+        <% end %>
+    </div>
+</div>
+<div class="content-item content-container">
+    <div class="content-item">
         <p>
             <strong>Vegetarian</strong> | <%= link_to "all vegetarian", recipes_vegetarian_path %>
-            <% if current_user %> | <%= link_to "add new", new_user_recipe_path(current_user) %><% end %>
         </p>
         <%= render collection: @recipes_vegetarian, partial: "recipe_p", as: :recipe %>
     </div>
     <div class="content-item">
         <p>
-            <strong>Vegan</strong> | <%= link_to "all vegan", recipes_vegan_path %> 
-            <% if current_user %> | <%= link_to "add new", new_user_recipe_path(current_user) %><% end %>
+            <strong>Vegan</strong> | <%= link_to "all vegan", recipes_vegan_path %>
         </p>
         <%= render collection: @recipes_vegan, partial: "recipe_p", as: :recipe %>
     </div>

@@ -3,11 +3,10 @@ class RecipeIngredient < ApplicationRecord
     belongs_to :ingredient
 
     validates :amount, presence: true
-    # validates :unit, presence: true
     validate :unit_singular?
 
     def full_ingredient
-        "#{amount} #{unit_name} #{ingredient_name}"
+        "#{amount} #{unit_name} #{ingredient_name}".split(" ").join(" ")
     end
 
     def ingredient_name
@@ -21,7 +20,6 @@ class RecipeIngredient < ApplicationRecord
     private
 
     def unit_singular?
-        byebug
         if unit.present? && unit != unit.singularize
             errors.add(:unit, "must be singular")
         end

@@ -23,7 +23,8 @@ class RecipesController < ApplicationController
     end
 
     def create
-        raise params.inspect
+        byebug
+        # params[:recipe][:user_id] == current_user.id.to_s
     end
 
 end
