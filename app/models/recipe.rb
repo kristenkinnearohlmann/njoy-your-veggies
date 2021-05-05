@@ -65,7 +65,7 @@ class Recipe < ApplicationRecord
     end
 
     def list_instructions
-        instructions.split("|").collect {|item| "#{item.strip}."}
+        instructions.split("|").collect {|item| "#{item.strip}"}
     end
 
 end

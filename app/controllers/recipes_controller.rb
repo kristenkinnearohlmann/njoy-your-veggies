@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
         if params[:recipe][:user_id] == current_user.id.to_s
             @recipe = current_user.recipes.new(recipe_params(:name, :description, :recipe_type, :instructions, :story))
             @recipe.add_ingredients(recipe_params(:ingredients))
-            byebug
+
             if @recipe.save
                 redirect_to recipe_path(@recipe)
             else
