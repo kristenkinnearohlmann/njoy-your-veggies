@@ -23,15 +23,8 @@ class RecipesController < ApplicationController
     end
 
     def create
-        byebug
-        # params[:recipe][:user_id] == current_user.id.to_s
-        # TODO: Handle ingredients - different params?
-#         recipe = u.recipes.new(top level recipe stuff)  
-# recipe.add_ingredients([])  
-# r.save  
         if params[:recipe][:user_id] == current_user.id.to_s
             @recipe = current_user.recipes.new(recipe_params(:name, :description, :recipe_type, :instructions, :story))
-            byebug
             @recipe.add_ingredients(recipe_params(:ingredients))
             byebug
             if @recipe.save

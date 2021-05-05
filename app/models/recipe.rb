@@ -11,21 +11,24 @@ class Recipe < ApplicationRecord
     validates :name, presence: true
     validates :recipe_type, inclusion: { in: ["Vegetarian","Vegan"], message: "%{value} is not a valid type" }
     validates :instructions, presence: true
-    validates :instructions, length: { minimum: 25 }
-
-    def instructions
-        read_attribute(:instructions).split("\r\n").join("|") if instructions.present?
-    end
-
-    def ingredients
-        read_attribute(:ingredients).split("\r\n") if ingredients.present?
-    end
+    validates :instructions, length: { minimum: 10 }
 
     def user_name
         user.name.present? ? user.name : user.email
     end
 
-    def add_ingredients(ingredients_list)
+    def instructions=(instructions)
+        write_attribute(:instructions,instructions.split("\r\n").join("|"))
+        # def name=(new_name)
+        #     write_attribute(:name, new_name.upcase)
+        #     # This is equivalent:
+        #     # self[:name] = new_name.upcase
+        #   end
+    end
+
+    def add_ingredients(ingredients_string)
+        byebug
+        ingredients_list = ingredients_string.split("\r\n")
         ingredients_list.each do |ingredient|
             result = recipe_ingredient_parts(LittleRecipeParser::Parse.new(ingredient))
             self.recipe_ingredients.build(result)
