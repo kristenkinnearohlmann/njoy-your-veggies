@@ -25,6 +25,22 @@ class RecipesController < ApplicationController
     def create
         byebug
         # params[:recipe][:user_id] == current_user.id.to_s
+        # TODO: Handle ingredients - different params?
+#         recipe = u.recipes.new(top level recipe stuff)  
+# recipe.add_ingredients([])  
+# r.save  
     end
 
+    private
+
+    def recipe_params
+        params.require(:recipe).permit(
+            :name,
+            :description,
+            :recipe_type,
+            :instructions,
+            :story,
+            :user_id
+        )
+    end
 end
