@@ -13,7 +13,6 @@
     <div <%= 'class=field_with_errors' if @recipe.errors[:ingredients].any? %>>
         <%= f.label "Ingredients (one ingredient per line)" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@recipe, :ingredients) %></span><br/>
         <%= text_area_tag "recipe[ingredients]", nil, rows:6, cols:1 %>
-        <!-- nested form? -->
     </div>
     <div>
         <%= f.label "Instructions (one instruction per line)" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@recipe, :instructions) %></span><br/>
