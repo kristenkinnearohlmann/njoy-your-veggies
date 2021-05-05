@@ -30,9 +30,9 @@ class RecipesController < ApplicationController
 # recipe.add_ingredients([])  
 # r.save  
         if params[:recipe][:user_id] == current_user.id.to_s
-            @recipe = current_user.recipes.new(recipe_params(:name, :description, :recipe_type, :instructions.split("\r\n"),:story))
+            @recipe = current_user.recipes.new(recipe_params(:name, :description, :recipe_type, :instructions, :story))
             byebug
-            @recipe.add_ingredients(recipe_params(ingredients: [:ingredients].split("\r\n")))
+            @recipe.add_ingredients(recipe_params(:ingredients))
             byebug
             if @recipe.save
                 redirect_to recipe_path(@recipe)

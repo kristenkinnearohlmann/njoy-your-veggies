@@ -13,6 +13,14 @@ class Recipe < ApplicationRecord
     validates :instructions, presence: true
     validates :instructions, length: { minimum: 25 }
 
+    def instructions
+        read_attribute(:instructions).split("\r\n").join("|") if instructions.present?
+    end
+
+    def ingredients
+        read_attribute(:ingredients).split("\r\n") if ingredients.present?
+    end
+
     def user_name
         user.name.present? ? user.name : user.email
     end
@@ -60,7 +68,7 @@ class Recipe < ApplicationRecord
     end
 
     def list_instructions
-        instructions.split(".").collect {|item| "#{item.strip}."}
+        instructions.split("|").collect {|item| "#{item.strip}."}
     end
 
 end
