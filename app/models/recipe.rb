@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
     belongs_to :user
-    has_many :recipe_ingredients
+    has_many :recipe_ingredients, dependent: :destroy
     has_many :ingredients, through: :recipe_ingredients
 
     scope :vegetarian, -> { where(recipe_type: "Vegetarian").order(:name) }
@@ -19,16 +19,10 @@ class Recipe < ApplicationRecord
 
     def instructions=(instructions)
         write_attribute(:instructions,instructions.split("\r\n").join("|"))
-        # def name=(new_name)
-        #     write_attribute(:name, new_name.upcase)
-        #     # This is equivalent:
-        #     # self[:name] = new_name.upcase
-        #   end
     end
 
-    def add_ingredients(ingredients_string)
-        byebug
-        ingredients_list = ingredients_string.split("\r\n")
+    def add_ingredients(ingredients)
+        ingredients_list = ingredients["ingredients"].split("\r\n")
         ingredients_list.each do |ingredient|
             result = recipe_ingredient_parts(LittleRecipeParser::Parse.new(ingredient))
             self.recipe_ingredients.build(result)
