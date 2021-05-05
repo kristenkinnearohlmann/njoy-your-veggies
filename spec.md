@@ -46,7 +46,8 @@ Specs:
    - Used the `match` keyword from the OmniAuth lab to allow for addition of more strategies post-MVP
 - [X] Include nested resource show or index (URL e.g. users/2/recipes)
    - Included link for most recent recipe on user's profile page
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [X] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+   - Added new recipe form nested as `/users/:id/recipes/new`
 - [X] Include form display of validation errors (form URL e.g. /recipes/new)
    - Forms include call to helper method for form errors in `application_helper`
 

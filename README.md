@@ -4,29 +4,11 @@ Vegetarian and vegan food is delicious and creative. Njoy Your Veggies is a coll
 
 ## Install Instructions
 
-**EDIT**
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Install Rails 6.0
+1. Clone this repo to your local machine
+1. Run `rake db:migrate` to install the database
+1. Run `rails s` to start the server
+1. Open `localhost:3000` in your browser; if the site is not served, check your terminal to see if another port has been assigned.
 
 ## Contributor's Guide
 
