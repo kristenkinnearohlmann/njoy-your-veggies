@@ -25,12 +25,13 @@ class RecipesController < ApplicationController
     def create
         if params[:recipe][:user_id] == current_user.id.to_s
             @recipe = current_user.recipes.new(recipe_params(:name, :description, :recipe_type, :instructions, :story))
-            @recipe.add_ingredients(recipe_params(:ingredients))
+
+            @recipe.add_ingredients(recipe_params(:ingredients)) if params[:recipe][:ingredients].present?
 
             if @recipe.save
                 redirect_to recipe_path(@recipe)
             else
-                # render new_user_recipe_path(current_user)
+                @recipe.errors.add(:ingredients,"no ingredients added") if params[:recipe][:ingredients].empty?
                 render controller: 'recipes', action: 'new'
             end
         else
