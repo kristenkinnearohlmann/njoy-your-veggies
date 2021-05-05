@@ -89,10 +89,6 @@ nav {
     font-family: 'Over the Rainbow', cursive;
 }
 
-.content-item {
-    margin: 0 auto;
-}
-
 .content-container {
     width: 55%;
     margin: 0 auto;
@@ -100,6 +96,14 @@ nav {
     background-color: $base-color-content;
     display: flex;
     flex-flow: row wrap;
+}
+
+.content-item {
+    margin: 0 auto;
+}
+
+.content-size-half {
+    width: 50%;
 }
 
 footer {

@@ -13,13 +13,13 @@
     </div>
 </div>
 <div class="content-item content-container">
-    <div class="content-item">
+    <div class="content-item content-size-half">
         <p>
             <strong>Vegetarian</strong> | <%= link_to "all vegetarian", recipes_vegetarian_path %>
         </p>
         <%= render collection: @recipes_vegetarian, partial: "recipe_p", as: :recipe %>
     </div>
-    <div class="content-item">
+    <div class="content-item content-size-half">
         <p>
             <strong>Vegan</strong> | <%= link_to "all vegan", recipes_vegan_path %>
         </p>

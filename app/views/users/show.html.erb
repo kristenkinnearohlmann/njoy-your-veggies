@@ -1,12 +1,12 @@
 <%= render partial: 'layouts/content_page_subtitle', locals: {subtitle: "User profile"} %>
 <div class="content-container">
-    <div class="content-item">
+    <div class="content-item content-size-half">
         <h3>Account information</h3>
         <strong>Email:</strong> <%= @user.email %><br/>
         <strong>Name:</strong> <%= @user.name %><br/>
         <strong>Joined:</strong> <%= @user.joined_date %> (<%= @user.user_timeframe %>)
     </div>
-    <div class="content-item">
+    <div class="content-item content-size-half">
         <h3>Recipe information</h3>
         <strong>Current recipe count:</strong> <%= @user.recipe_count %><br/>
         <strong>Most recent recipe:</strong> <%= link_to @user.most_recent_recipe.name, user_recipe_path(@user.id, @user.most_recent_recipe) %> | <%= link_to "Add new recipe", new_user_recipe_path(current_user) %><br/>
