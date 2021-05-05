@@ -29,20 +29,21 @@ class Recipe < ApplicationRecord
 
         result.tag.present? ? result.tag = result.tag.downcase : result.tag = result.raw_ingredient.gsub(/#{result.quantity}\s#{result.measurement}\s/,"").downcase
         ingredient = Ingredient.find_or_create_by(name: result.tag.singularize)
-
+        byebug
         if ingredient.valid?
             recipe_ingredient_parts = {
                 :recipe_id => self.id,
                 :ingredient_id => ingredient.id,
                 :amount => result.quantity,
-                :unit => result.measurement,
+                :unit => (result.measurement.singularize if result.measurement.present?),
                 :is_plural_amount => item_plural?(result.quantity),
-                :is_plural_unit => item_plural?(result.measurement),
+                :is_plural_unit => (result.measurement.present? ? item_plural?(result.measurement) : false),
                 :is_plural_ingredient => item_plural?(result.tag)
             }
         else
             self.errors.add("Ingredient",ingredient.errors.full_messages)
         end
+
         recipe_ingredient_parts
     end
 

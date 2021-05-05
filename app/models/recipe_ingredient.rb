@@ -21,6 +21,7 @@ class RecipeIngredient < ApplicationRecord
     private
 
     def unit_singular?
+        byebug
         if unit.present? && unit != unit.singularize
             errors.add(:unit, "must be singular")
         end
