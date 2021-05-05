@@ -9,7 +9,13 @@
     <div class="content-item content-size-half">
         <h3>Recipe information</h3>
         <strong>Current recipe count:</strong> <%= @user.recipe_count %><br/>
-        <strong>Most recent recipe:</strong> <%= link_to @user.most_recent_recipe.name, user_recipe_path(@user.id, @user.most_recent_recipe) %> | <%= link_to "Add new recipe", new_user_recipe_path(current_user) %><br/>
+        <strong>Most recent recipe:</strong><br/>
+            <% if @user.most_recent_recipe.present? %>
+                <%= link_to @user.most_recent_recipe.name, user_recipe_path(@user.id, @user.most_recent_recipe) %>
+            <% else %>
+                <span>None added</span>
+            <% end %>
+            | <%= link_to "Add new recipe", new_user_recipe_path(current_user) %><br/>
         <strong>All user recipes:</strong>
         <div>
             <%= render collection: @user.recipes.ordered_most_recent, partial: 'recipes/recipe_p', as: :recipe %>
