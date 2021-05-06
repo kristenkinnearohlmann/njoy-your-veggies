@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :recipes
+    has_many :comments, class_name: "Comment", foreign_key: "commenter_id"
 
     validates :email, presence: true
     validates :email, uniqueness: true
