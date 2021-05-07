@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
             end
         else
             flash[:msg] = "You must be logged in to create a recipe."
-            render recipes_path
+            redirect_to recipes_path
         end
     end
 
@@ -47,7 +47,10 @@ class RecipesController < ApplicationController
                 redirect_to root, msg: "User not found"
             else
                 @recipe = user.recipes.find_by(id: params[:id])
-                redirect_to recipes_path, msg: "Recipe not found" if @recipe.nil?
+                if @recipe.nil?
+                    flash[:msg] = "Recipe not found in your profile"
+                    redirect_to recipe_path(params[:id])
+                end
             end
         else
             @recipe = Recipe.find(params[:id])
@@ -57,22 +60,22 @@ class RecipesController < ApplicationController
     def update
         if params[:recipe][:user_id] == current_user.id.to_s
             @recipe = current_user.recipes.find_by(id: params[:id])
-            redirect_to recipes_path, error: "Recipe not found" if @recipe.nil?
-            if @recipe.present?
+            if @recipe.nil?
+                flash[:msg] = "The recipe does not belong to your profile"
+                redirect_to recipes_path
+            else
                 @recipe.update(recipe_params(:name, :description, :recipe_type, :instructions, :story))
                 if params[:recipe][:ingredients].present?
                     @recipe.recipe_ingredients.clear
                     @recipe.add_ingredients(recipe_params(:ingredients))
+                    @recipe.save
                 end
 
                 redirect_to recipe_path(@recipe)
-            else
-                @recipe.errors.add(:ingredients,"no ingredients added") if params[:recipe][:ingredients].empty?
-                render controller: 'recipes', action: 'edit'
             end
         else
             flash[:msg] = "You must be owner to edit a recipe."
-            render recipe_path(@recipe)
+            redirect_to recipe_path(@recipe)
         end
     end
 
