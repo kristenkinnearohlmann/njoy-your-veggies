@@ -61,9 +61,7 @@ class RecipesController < ApplicationController
             if @recipe.present?
                 @recipe.update(recipe_params(:name, :description, :recipe_type, :instructions, :story))
                 if params[:recipe][:ingredients].present?
-                    byebug
-                    @recipe.recipe_ingredients.destroy
-                    byebug
+                    @recipe.recipe_ingredients.clear
                     @recipe.add_ingredients(recipe_params(:ingredients))
                 end
 
