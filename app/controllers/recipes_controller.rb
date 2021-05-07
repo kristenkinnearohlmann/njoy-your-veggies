@@ -45,7 +45,26 @@ class RecipesController < ApplicationController
     end
 
     def update
+        # update all recipe model pieces
+        # destroy recipeingredient model pieces and re-add
+        # redirect to show
+        if params[:recipe][:user_id] == current_user.id.to_s
+            @recipe = Recipe.find(params[:id]).where(user_id: current_user.id)
+            byebug
+            if @recipe
+                @recipe.update(recipe_params(:name, :description, :recipe_type, :instructions, :story))
+                byebug
+                @recipe.add_ingredients(recipe_params(:ingredients)) if params[:recipe][:ingredients].present?
 
+                redirect_to recipe_path(@recipe)
+            else
+                @recipe.errors.add(:ingredients,"no ingredients added") if params[:recipe][:ingredients].empty?
+                render controller: 'recipes', action: 'edit'
+            end
+        else
+            flash[:msg] = "You must be owner to edit a recipe."
+            render recipe_path(@recipe)
+        end
     end
 
     private

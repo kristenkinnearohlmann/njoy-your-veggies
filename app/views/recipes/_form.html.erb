@@ -16,7 +16,11 @@
     </div>
     <div>
         <%= f.label "Instructions (one instruction per line)" %><span class="required-input">*</span> <span class="err-msg"><%= form_errors(@recipe, :instructions) %></span><br/>
-        <%= f.text_area(:instructions, value: @recipe.instructions.split("|").join("\r\n"), size: '1x12') %>
+        <% if @recipe.instructions.present? %>
+            <%= f.text_area(:instructions, value: @recipe.instructions.split("|").join("\r\n"), size: '1x12') %>
+        <% else %>
+        <%= f.text_area(:instructions, size: '1x12') %>
+        <% end %>
     </div>
     <div>
         <%= f.label "Recipe story" %>
