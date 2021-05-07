@@ -41,20 +41,31 @@ class RecipesController < ApplicationController
     end
 
     def edit
-        @recipe = Recipe.find(params[:id])
+        if params[:user_id] 
+            user = User.find_by(id: params[:user_id])
+            if user.nil? || params[:user_id] != current_user.id.to_s
+                redirect_to root, msg: "User not found"
+            else
+                @recipe = user.recipes.find_by(id: params[:id])
+                redirect_to recipes_path, msg: "Recipe not found" if @recipe.nil?
+            end
+        else
+            @recipe = Recipe.find(params[:id])
+        end
     end
 
     def update
-        # update all recipe model pieces
-        # destroy recipeingredient model pieces and re-add
-        # redirect to show
         if params[:recipe][:user_id] == current_user.id.to_s
-            @recipe = Recipe.find(params[:id]).where(user_id: current_user.id)
-            byebug
-            if @recipe
+            @recipe = current_user.recipes.find_by(id: params[:id])
+            redirect_to recipes_path, error: "Recipe not found" if @recipe.nil?
+            if @recipe.present?
                 @recipe.update(recipe_params(:name, :description, :recipe_type, :instructions, :story))
-                byebug
-                @recipe.add_ingredients(recipe_params(:ingredients)) if params[:recipe][:ingredients].present?
+                if params[:recipe][:ingredients].present?
+                    byebug
+                    @recipe.recipe_ingredients.destroy
+                    byebug
+                    @recipe.add_ingredients(recipe_params(:ingredients))
+                end
 
                 redirect_to recipe_path(@recipe)
             else

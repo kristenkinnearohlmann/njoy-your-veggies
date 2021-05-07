@@ -22,6 +22,7 @@ class Recipe < ApplicationRecord
     end
 
     def add_ingredients(ingredients)
+        byebug
         ingredients_list = ingredients["ingredients"].split("\r\n")
         ingredients_list.each do |ingredient|
             result = recipe_ingredient_parts(LittleRecipeParser::Parse.new(ingredient))
