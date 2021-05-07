@@ -1,12 +1,15 @@
 <%= render partial: 'layouts/content_page_subtitle', locals: {subtitle: "Recipes"} %>
-<div class="content-title">
-    <% if flash[:error] %>
-        <p class="err-msg"><%= flash[:error] %></p>
-        <% form_err = true %>
-    <% end %>
-</div>
+
 <div class="content-item content-container">
     <div class="content-item">
+        <% if flash[:error] %>
+            <p class="err-msg"><%= flash[:error] %></p>
+            <% form_err = true %>
+        <% end %>
+        <% if flash[:msg] %>
+            <p><%= flash[:msg] %></p>
+        <% end %>
+
         <% if current_user %>
             <%= button_to "Add new recipe", new_user_recipe_path(current_user), method: :get %>
         <% end %>

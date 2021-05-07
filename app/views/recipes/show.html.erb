@@ -1,9 +1,13 @@
 <div class="content-container">
     <div class="content-title">
         <h2><%= @recipe.name %></h2>
-        <p><%= link_to "Edit recipe", edit_user_recipe_path(current_user.id, @recipe) %>
+        <p>
+            <% if current_user %>
+                <%= link_to "Edit recipe", edit_user_recipe_path(current_user.id, @recipe) %>
+                | <%= link_to "Delete recipe", user_recipe_path(current_user.id, @recipe), method: :delete %>
+            <% end %>
         <% if flash[:msg] %>
-            <span class="err-msg"><%= flash[:msg] %></span>
+            &nbsp;<span class="err-msg"><%= flash[:msg] %></span>
         <% end %>
         </p>
     </div>

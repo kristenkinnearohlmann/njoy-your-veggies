@@ -61,7 +61,7 @@ class RecipesController < ApplicationController
         if params[:recipe][:user_id] == current_user.id.to_s
             @recipe = current_user.recipes.find_by(id: params[:id])
             if @recipe.nil?
-                flash[:msg] = "The recipe does not belong to your profile"
+                flash[:msg] = "Recipe not found in your profile"
                 redirect_to recipes_path
             else
                 @recipe.update(recipe_params(:name, :description, :recipe_type, :instructions, :story))
@@ -74,8 +74,22 @@ class RecipesController < ApplicationController
                 redirect_to recipe_path(@recipe)
             end
         else
-            flash[:msg] = "You must be owner to edit a recipe."
+            flash[:msg] = "You must be owner to edit a recipe"
             redirect_to recipe_path(@recipe)
+        end
+    end
+
+    def destroy
+        if params[:user_id] == current_user.id.to_s
+            @recipe = current_user.recipes.find_by(id: params[:id])
+            if @recipe.present?
+                @recipe.destroy
+                flash[:msg] = "Recipe deleted"
+                redirect_to recipes_path
+            else
+                flash[:msg] = "Recipe not found in your profile"
+                redirect_to recipe_path(params[:id])
+            end
         end
     end
 
