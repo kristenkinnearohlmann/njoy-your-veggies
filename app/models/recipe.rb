@@ -3,10 +3,12 @@ class Recipe < ApplicationRecord
     has_many :recipe_ingredients, dependent: :destroy
     has_many :ingredients, through: :recipe_ingredients
 
+    # TODO: scope create "order by name" to chain in
     scope :vegetarian, -> { where(recipe_type: "Vegetarian").order(:name) }
     scope :vegan, -> { where(recipe_type: "Vegan").order(:name) }
     scope :ordered_most_recent, -> { order(created_at: :desc) }
     scope :unique_type, -> { select("recipe_type").group("recipe_type")}
+    scope :found, -> (search){ where("name like ?","%#{search}%") }
 
     validates :name, presence: true
     validates :recipe_type, inclusion: { in: ["Vegetarian","Vegan"], message: "%{value} is not a valid type" }

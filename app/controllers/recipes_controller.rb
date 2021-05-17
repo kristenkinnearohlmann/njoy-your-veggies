@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    skip_before_action :authenticated_user, only: [:index, :show, :vegetarian, :vegan]
+    skip_before_action :authenticated_user, only: [:index, :show, :vegetarian, :vegan, :found]
 
     def index
         @recipes_vegetarian = vegetarian
@@ -32,7 +32,8 @@ class RecipesController < ApplicationController
                 redirect_to recipe_path(@recipe)
             else
                 @recipe.errors.add(:ingredients,"no ingredients added") if params[:recipe][:ingredients].empty?
-                render controller: 'recipes', action: 'new'
+                # render controller: 'recipes', action: 'new'
+                render :new
             end
         else
             flash[:msg] = "You must be logged in to create a recipe."
@@ -91,6 +92,15 @@ class RecipesController < ApplicationController
                 redirect_to recipe_path(params[:id])
             end
         end
+    end
+
+    def found
+        # here I want to execute something somewhere else to liek seacrch my recipe
+        # byebug
+        @results = Recipe.found(params[:search])
+        @recipes_vegetarian = vegetarian
+        @recipes_vegan = vegan
+        render :index
     end
 
     private

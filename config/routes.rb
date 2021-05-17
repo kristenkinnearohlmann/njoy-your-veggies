@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/recipes/vegetarian', to: 'recipes#vegetarian'
   get '/recipes/vegan', to: 'recipes#vegan'
 
+  get '/recipes/found', to: 'recipes#found'
+
   # resources :users, only: [:show] do
   resources :users do
     resources :recipes, only: [:show, :new, :create, :edit, :update, :destroy]

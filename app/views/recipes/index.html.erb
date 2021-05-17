@@ -1,5 +1,11 @@
 <%= render partial: 'layouts/content_page_subtitle', locals: {subtitle: "Recipes"} %>
 
+
+<%= form_tag(recipes_found_path, method: "GET") do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Find" %>
+<% end %>
+
 <div class="content-item content-container">
     <div class="content-item">
         <% if flash[:error] %>
@@ -29,3 +35,13 @@
         <%= render collection: @recipes_vegan, partial: "recipe_p", as: :recipe %>
     </div>
 </div>
+<% if @results %>
+<div class="content-item content-container">
+    <div class="content-item content-size-half">
+        <p>
+            <strong>Found</strong> 
+        </p>
+        <%= render collection: @results, partial: "recipe_p", as: :recipe %>
+    </div>
+</div>
+<% end %>
